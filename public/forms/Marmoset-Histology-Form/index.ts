@@ -87,7 +87,7 @@ export default defineInstrument({
       label: "Protocol followed",
       options: {
         "CoBrA Lab": "CoBrA Lab",
-        "Western University": "Western Unversity",
+        "Western University": "Western University",
         "Other": "Other",
       },
     },

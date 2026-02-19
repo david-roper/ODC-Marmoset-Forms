@@ -297,7 +297,6 @@ export default defineInstrument({
           "Nucleic dye used": antiBodyInfo.nucleicDyeUsed,
           "nucleicDyeOther": antiBodyInfo.nucleicDyeOther,
           "Antibody duration": antiBodyInfo.antibodyDuration,
-          "Anitbody name:": antiBodyInfo.antibodyName,
           "Antibody concentration μg/mL": antiBodyInfo.antibodyConcentration
         }))
         return antiBodyListResults

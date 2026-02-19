@@ -522,10 +522,45 @@ export default defineInstrument({
       visibility: "visible",
       ref: "exVivoCranioStatus"
     },
+    exVivoScanningMedium: {
+      kind: "const",
+      visibility: "visible",
+      ref: "exVivoScanningMedium"
+    },
+    exVivoScanningMediumOther: {
+      kind: "const",
+      visibility: "visible",
+      ref: "exVivoScanningMediumOther"
+    },
+    anestheticUsed: {
+      kind: "const",
+      visibility: "visible",
+      ref: "anestheticUsed"
+    },
+    headwearUsed: {
+      kind: "const",
+      visibility: "visible",
+      ref: "headwearUsed"
+    },
+    headwearType: {
+      kind: "const",
+      visibility: "visible",
+      ref: "headwearType"
+    },
     dexUsed: {
       kind: "const",
       visibility: "visible",
       ref: "dexUsed"
+    },
+    dexAdjusttedFromSOP: {
+      kind: "const",
+      visibility: "visible",
+      ref: "dexAdjustedFromSOP"
+    },
+    dexAdjustedPercentage: {
+      kind: "const",
+      visibility:"visible",
+      ref: "dexAdjustedPercentage"
     },
     dexSolutionCreationDate: {
       kind: "const",
@@ -579,11 +614,13 @@ export default defineInstrument({
         const scanResults = data.scanRecordInfo || []
         const scanRecordResults = scanResults.map(scan => ({
           "MRI scan name": scan.mriScanName,
+          "Marmoset vitals tracked": scan.marmosetVitalsTracked,
           "Breathing stable": scan.breathingStable,
           "O_2 concentration %": scan.oxygenConcentration,
           "O_2 saturation %": scan.oxygenSaturation,
           "Respiration rate /min": scan.respirationRate,
           "Form of measurement": scan.formOfMeasurement,
+          "State of animal": scan.stateOfAnimal,
           "Comments": scan.otherComments
         }))
         return scanRecordResults
@@ -607,8 +644,8 @@ export default defineInstrument({
     exVivoCranioStatus: z.enum(['In-cranio', 'Ex-cranio']).optional(),
     exVivoScanningMedium: z.enum(["Dry", "Fluorinert", "Other"]).optional(),
     exVivoScanningMediumOther: z.string().optional(),
-    anestheticUsed: z.boolean(),
-    headwearUsed: z.boolean(),
+    anestheticUsed: z.boolean().optional(),
+    headwearUsed: z.boolean().optional(),
     headwearType: z.enum(['Helmet',"Headpost"]).optional(),
     dexUsed: z.boolean().optional(),
     dexSolutionCreationDate: z.date().optional(),

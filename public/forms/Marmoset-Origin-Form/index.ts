@@ -8,7 +8,7 @@ export default defineInstrument({
   language: 'en',
   tags: ['Birth', 'Marmoset','Origin'],
   internal: {
-    edition: 4,
+    edition: 1,
     name: 'MARMOSET_ORIGIN_FORM'
   },
   content: {
@@ -35,10 +35,8 @@ export default defineInstrument({
       variant: "select",
       label: "Marmoset Strain",
       options: {
-        "M83": "M83",
-        "C57BL/6J": "C57BL/6J",
-        "5XFAD": "5XFAD",
-        "3xTG-AD": "3xTG-AD",
+        "Pygmy": "Pygmy",
+        "Atlantic Forest": "Atlantic Forest",
         "Other":"Other"
       }
     },
@@ -550,10 +548,8 @@ export default defineInstrument({
   fatherKnown: z.boolean(),
   fatherMarmoset: z.string().optional(),
   fatherMarmosetStrain: z.enum([
-    'M83',
-    'C57BL/6J',
-    '5XFAD',
-    '3xTG-AD',
+    "Pygmy",
+    "Atlantic Forest",
     'Other'
   ]).optional(),
   fatherMarmosetOtherStrain: z.string().optional(),

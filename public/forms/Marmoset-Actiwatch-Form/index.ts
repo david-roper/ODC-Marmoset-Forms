@@ -59,7 +59,7 @@ export default defineInstrument({
   details: {
     description: 'This form is used to track the status of a completed actiwatch session.',
     license: 'Apache-2.0',
-    title: 'Physical Intervention Form'
+    title: 'Actiwatch Form'
   },
   clientDetails: {
     estimatedDuration: 1,

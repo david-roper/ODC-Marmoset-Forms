@@ -136,6 +136,7 @@ export default defineInstrument({
         },
         nucleicDyeOther: {
           kind: "dynamic",
+          deps: ['nucleicDyeUsed'],
           render(data) {
             if(data.nucleicDyeUsed === "Other"){
               return {

@@ -66,6 +66,36 @@ export default defineInstrument({
     instructions: ['When filling out the form please keep track of the actiwatch used for the session, the time measurements used and duration of the session.']
   },
   measures: {
+   actiwatchId: {
+    kind: 'const',
+     visibility: 'visible',
+     ref: 'actiwatchId'
+   },
+   roomNumber: {
+     kind: 'const',
+     visibility: 'visible',
+     ref: 'roomNumber'
+   },
+   epochDuration: {
+     kind: 'const',
+     visibility: 'visible',
+     ref: 'epochDuration'
+   },
+   wasMultipleDaySession: {
+     kind: 'const',
+     visibility: 'visible',
+     ref: 'wasMultipleDaySession'
+   },
+   sessionStartDate: {
+     kind: 'const',
+     visibility: 'visible',
+     ref: 'sessionStartDate'
+   },
+   wasSleepTracked: {
+     kind: 'const',
+     visibility: 'visible',
+     ref: 'wasSleepTracked'
+   },
     additionalComments: {
       kind: 'const',
       visibility: "visible",

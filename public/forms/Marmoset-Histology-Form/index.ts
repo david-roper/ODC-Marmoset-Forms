@@ -183,7 +183,7 @@ export default defineInstrument({
     wasSampleStained: {
       kind: "boolean",
       variant: "radio",
-      label: "Was sample stained",
+      label: "Was sample stained?",
     },
     stainUsed: {
       kind: "dynamic",
@@ -223,7 +223,7 @@ export default defineInstrument({
     histologyQuantified: {
       kind: "boolean",
       variant: "radio",
-      label: "Histology Quantified",
+      label: "Was Histology quantified?",
     },
 
     additionalComments: {
@@ -339,7 +339,7 @@ export default defineInstrument({
     }
   },
   validationSchema: z.object({
-    roomNumber: z.string(),
+    roomNumber:  z.string().min(1),
     histologyType: z.enum(["Immunohistochemistry", "Immunofluorescence"]),
     brainStorageConditions: z.enum(["Paraffin", "Frozen"]),
     wasBrainSliced: z.boolean(),
@@ -350,10 +350,10 @@ export default defineInstrument({
     antibodiesUsedInfo: z.array(
       z.object({
         antibodyType: z.enum(["Primary", "Secondary"]),
-        antibodyName: z.string(),
+        antibodyName: z.string().min(1),
         nucleicDyeUsed: z.enum(["Hoechst","DAPI","None","Other"]),
         nucleicDyeOther: z.string().optional(),
-        antibodyDuration: z.number().int().min(0).max(24),
+        antibodyDuration: z.union([z.literal(12), z.literal(18)]),
         antibodyConcentration: z.number(),
       })
     ),
@@ -363,7 +363,7 @@ export default defineInstrument({
       "Chicken serum",
       "Mice serum",
     ]),
-    batchNumber: z.string(),
+    batchNumber: z.string().min(1),
     wasSampleStained: z.boolean(),
     stainUsed: z.enum(["GFAP", "IBA1", "PSYN", "TH", "NEUN"]).optional(),
     dateStained: z.date().optional(),

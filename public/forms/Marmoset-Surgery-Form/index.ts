@@ -292,9 +292,9 @@ export default defineInstrument({
 
     brainSurgeryPaxinosMLCoords: {
       kind: "dynamic",
-      deps: ["stereotaxUsed", "surgeryType"],
+      deps: ["stereotaxUsed", "surgeryType", "treatmentType"],
       render(data) {
-        if( data.stereotaxUsed && (data.surgeryType !== 'Ovariectomy' && data.surgeryType !== undefined)){
+        if( data.stereotaxUsed && (data.surgeryType !== 'Ovariectomy')){
           return {
             kind: "number",
             variant: "input",

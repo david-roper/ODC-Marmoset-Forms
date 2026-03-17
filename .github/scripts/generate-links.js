@@ -46,10 +46,10 @@ if (fs.existsSync(formsDir)) {
 
 // 2. Inject into README
 const readmeContent = fs.readFileSync(readmePath, 'utf8');
-const startMarker = "";
-const endMarker = "";
+const startMarker = "<!-- FORMS_START -->";
+const endMarker = "<!-- FORMS_END -->";
 
-const regex = new RegExp(`${startMarker}[\\s\\S]*${endMarker}`);
+const regex = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`);
 const updatedReadme = readmeContent.replace(
   regex, 
   `${startMarker}\n\n${markdownLinks}\n${endMarker}`

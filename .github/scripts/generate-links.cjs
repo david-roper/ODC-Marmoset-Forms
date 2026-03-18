@@ -38,7 +38,7 @@ if (fs.existsSync(formsDir)) {
           files: [{ name: indexFile, content: content }]
         });
 
-        markdownLinks += `* **${formLabel}**: [Open in Playground](${url})\n`;
+        markdownLinks += `* [**${formLabel}**](${url}) \n`;
       }
     }
   });

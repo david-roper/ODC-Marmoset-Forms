@@ -154,7 +154,7 @@ export default defineInstrument({
       variant: 'radio',
       label: "Is the mother known?"
     },
-    motherMarmoset: {
+    motherMarmosetId: {
       kind: 'dynamic',
       deps: ['motherKnown'],
       render(data) {
@@ -162,7 +162,7 @@ export default defineInstrument({
          return {
           kind: "string",
           variant: "input",
-          label: "Id of marmoset's mother"
+          label: "Id of marmoset's mother (optional)"
          }
        }
        return null
@@ -242,7 +242,7 @@ export default defineInstrument({
       variant: 'radio',
       label: "Is the father known?"
     },
-    fatherMarmoset: {
+    fatherMarmosetId: {
      kind: 'dynamic',
      deps: ['fatherKnown'],
      render(data) {
@@ -250,7 +250,7 @@ export default defineInstrument({
         return {
           kind: 'string',
           variant: 'input',
-          label: "Id of marmoset's father"
+          label: "Id of marmoset's father (optional)"
         }
       }
       return null
@@ -343,7 +343,7 @@ export default defineInstrument({
     generationNumber: {
       kind: 'number',
       variant: 'input',
-      label: 'N-generation of marmoset'
+      label: 'N-generation of marmoset (optional)'
     },
     additionalComments: {
       kind: "string",
@@ -433,10 +433,10 @@ export default defineInstrument({
     label: 'Is mother known',
     ref: 'motherKnown'
   },
-  motherMarmoset: {
+  motherMarmosetId: {
     kind: 'const',
     visibility: 'visible',
-    ref: 'motherMarmoset'
+    ref: 'motherMarmosetId'
   },
   motherMarmosetStrain: {
     kind: 'const',
@@ -464,10 +464,10 @@ export default defineInstrument({
     label: 'Is father known',
     ref: 'fatherKnown'
   },
-  fatherMarmoset: {
+  fatherMarmosetId: {
     kind: 'const',
     visibility: 'visible',
-    ref: 'fatherMarmoset'
+    ref: 'fatherMarmosetId'
   },
   fatherMarmosetStrain: {
     kind: 'const',
@@ -527,7 +527,7 @@ export default defineInstrument({
   orderId: z.string().optional(),
   breedingCageId: z.string().optional(),
   motherKnown: z.boolean(),
-  motherMarmoset: z.string().optional(),
+  motherMarmosetId: z.string().optional(),
   motherMarmosetStrain: z.enum([
     "Pygmy",
     "Atlantic Forest",
@@ -543,7 +543,7 @@ export default defineInstrument({
   ]).optional(),
   motherMarmosetGenotypeOther: z.string().optional(),
   fatherKnown: z.boolean(),
-  fatherMarmoset: z.string().optional(),
+  fatherMarmosetId: z.string().optional(),
   fatherMarmosetStrain: z.enum([
     "Pygmy",
     "Atlantic Forest",
@@ -568,7 +568,7 @@ export default defineInstrument({
   ]).optional(),
   otherBreederOrigin: z.string().optional(),
   roomNumber: z.string().optional(),
-  generationNumber: z.number().min(0).int(),
+  generationNumber: z.number().min(0).int().optional(),
   additionalComments: z.string().optional()
 })
 });

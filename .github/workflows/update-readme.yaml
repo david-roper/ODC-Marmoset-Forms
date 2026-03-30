@@ -1,6 +1,8 @@
 name: Auto-generate README Links
 on:
   push:
+    branches:
+      - main
     paths:
       - 'public/forms/**'
   workflow_dispatch:
